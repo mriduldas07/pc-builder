@@ -1,17 +1,12 @@
 import React from "react";
 import { Breadcrumb, Layout, Menu, theme } from "antd";
+import Dropdowns from "../UI/Dropdowns";
 const { Header, Content, Footer } = Layout;
 const RootLayout = ({ children }) => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
 
-  const navItem = [
-    {
-      key: 1,
-      label: "Home",
-    },
-  ];
   return (
     <Layout className="layout">
       <Header
@@ -30,18 +25,7 @@ const RootLayout = ({ children }) => {
         >
           PC HUT
         </h1>
-        <Menu
-          theme="dark"
-          mode="horizontal"
-          defaultSelectedKeys={["2"]}
-          items={new Array(5).fill(null).map((_, index) => {
-            const key = index + 1;
-            return {
-              key,
-              label: `nav ${key}`,
-            };
-          })}
-        />
+        <Dropdowns />
         <h1
           style={{
             maxHeight: "40px",
@@ -67,7 +51,7 @@ const RootLayout = ({ children }) => {
         <div
           className="site-layout-content"
           style={{
-            background: colorBgContainer,
+            background: "#F2F4F8",
           }}
         >
           {children}
@@ -76,9 +60,11 @@ const RootLayout = ({ children }) => {
       <Footer
         style={{
           textAlign: "center",
+          backgroundColor: "black",
+          color: "white",
         }}
       >
-        Ant Design ©2023 Created by Ant UED
+        PC HUT @All rights to change anything
       </Footer>
     </Layout>
   );
