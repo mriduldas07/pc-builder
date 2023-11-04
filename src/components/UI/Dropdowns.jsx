@@ -20,17 +20,19 @@ const Dropdowns = () => {
 
   const category = [];
   data?.data.forEach((element) => {
-    category.push(element.category);
+    category.push(element);
   });
 
   const items = [
     {
       label: (
-        <Link href="">
-          {category.map((c, i) => (
-            <h3 key={i}>{c}</h3>
+        <span>
+          {category.map((c) => (
+            <Link href={`/categoryProduct/${c._id}`} key={c._id}>
+              <h3>{c.category}</h3>
+            </Link>
           ))}
-        </Link>
+        </span>
       ),
       key: "0",
     },
