@@ -1,13 +1,11 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
 import RootLayout from "@/components/Layout/RootLayout";
+import React from "react";
 import ProductCard from "@/components/UI/ProductCard";
-import Categories from "@/components/UI/Categories";
+import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home({ category }) {
-  const data = category?.data;
+export default function PcBuilderProduct({ data }) {
   return (
     <main
       className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
@@ -20,27 +18,23 @@ export default function Home({ category }) {
           margin: "2rem",
         }}
       >
-        {data?.map((d) => (
-          <ProductCard data={d} key={d._id} />
+        {data.data.products.map((p) => (
+          <ProductCard key={p._id} data={p} />
         ))}
       </div>
-      <Categories />
     </main>
   );
 }
 
-Home.getLayout = function getLayout(page) {
+PcBuilderProduct.getLayout = function getLayout(page) {
   return <RootLayout>{page}</RootLayout>;
 };
 
-export const getStaticProps = async () => {
+export async function getServerSideProps(context) {
+  const { params } = context;
   const res = await fetch(
-    "https://pc-builder-server-beta.vercel.app/api/v1/all-products"
+    `https://pc-builder-server-beta.vercel.app/api/v1/single-category/${params.productId}`
   );
-  const category = await res.json();
-  return {
-    props: {
-      category,
-    },
-  };
-};
+  const repo = await res.json();
+  return { props: { data: repo } };
+}

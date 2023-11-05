@@ -29,22 +29,24 @@ const RootLayout = ({ children }) => {
           </h1>
         </Link>
         <Dropdowns />
-        <h1
-          style={{
-            maxHeight: "40px",
-            color: "white",
-            fontSize: "18px",
-            cursor: "pointer",
-            background: "#1677ff",
-            padding: "0 15px",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            borderRadius: "5px",
-          }}
-        >
-          Pc builder
-        </h1>
+        <Link href={`/pcBuilder`}>
+          <h1
+            style={{
+              maxHeight: "40px",
+              color: "white",
+              fontSize: "18px",
+              cursor: "pointer",
+              background: "#1677ff",
+              padding: "0 15px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              borderRadius: "5px",
+            }}
+          >
+            Pc builder
+          </h1>
+        </Link>
       </Header>
       <Content
         style={{

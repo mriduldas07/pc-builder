@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 const { Meta } = Card;
 const App = ({ data }) => (
-  <Link href={`productDetails/${data._id}`}>
+  <Link href={`/productDetails/${data._id}`}>
     <Card
       hoverable
       style={{
