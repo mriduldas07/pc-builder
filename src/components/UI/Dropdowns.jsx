@@ -16,8 +16,6 @@ const Dropdowns = () => {
       });
   }, []);
 
-  // console.log(data);
-
   const category = [];
   data?.data.forEach((element) => {
     category.push(element);

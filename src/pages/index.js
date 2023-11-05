@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import RootLayout from "@/components/Layout/RootLayout";
 import ProductCard from "@/components/UI/ProductCard";
+import Categories from "@/components/UI/Categories";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +23,7 @@ export default function Home({ category }) {
           <ProductCard data={d} key={d._id} />
         ))}
       </div>
+      <Categories />
     </main>
   );
 }

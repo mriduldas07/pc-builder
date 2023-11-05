@@ -1,6 +1,7 @@
 import React from "react";
 import { Breadcrumb, Layout, Menu, theme } from "antd";
 import Dropdowns from "../UI/Dropdowns";
+import Link from "next/link";
 const { Header, Content, Footer } = Layout;
 const RootLayout = ({ children }) => {
   const {
@@ -16,15 +17,17 @@ const RootLayout = ({ children }) => {
           alignItems: "center",
         }}
       >
-        <h1
-          style={{
-            color: "white",
-            fontSize: "24px",
-            cursor: "pointer",
-          }}
-        >
-          PC HUT
-        </h1>
+        <Link href={`/`}>
+          <h1
+            style={{
+              color: "white",
+              fontSize: "24px",
+              cursor: "pointer",
+            }}
+          >
+            PC HUT
+          </h1>
+        </Link>
         <Dropdowns />
         <h1
           style={{
