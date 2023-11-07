@@ -2,10 +2,12 @@ import RootLayout from "@/components/Layout/RootLayout";
 import React from "react";
 import ProductCard from "@/components/UI/ProductCard";
 import { Inter } from "next/font/google";
+import { useRouter } from "next/router";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function PcBuilderProduct({ data }) {
+  const router = useRouter();
   return (
     <main
       className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
@@ -19,7 +21,7 @@ export default function PcBuilderProduct({ data }) {
         }}
       >
         {data.data.products.map((p) => (
-          <ProductCard key={p._id} data={p} />
+          <ProductCard key={p._id} data={p} cateId={router.query.productId} />
         ))}
       </div>
     </main>

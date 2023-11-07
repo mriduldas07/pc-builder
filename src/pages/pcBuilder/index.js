@@ -1,11 +1,10 @@
 import RootLayout from "@/components/Layout/RootLayout";
 import PcBuilderProduct from "@/components/UI/PcBuilderProduct";
-import { useRouter } from "next/router";
 import React from "react";
+import { useSelector } from "react-redux";
 
 export default function PcBuilderPage({ data }) {
-  const router = useRouter();
-  //   console.log(data.data);
+  const { products } = useSelector((state) => state.pcbuilder);
   return (
     <div>
       <div
@@ -44,6 +43,28 @@ export default function PcBuilderPage({ data }) {
             <PcBuilderProduct key={d._id} data={d} />
           ))}
         </div>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          margin: "30px 0",
+        }}
+      >
+        <button
+          className="pcButton"
+          style={{
+            fontSize: "20px",
+            background: "#1677FF",
+            color: "white",
+            padding: "5px 30px",
+            borderRadius: "3px",
+          }}
+          disabled={products.length < 5}
+        >
+          Complete Build
+        </button>
       </div>
     </div>
   );

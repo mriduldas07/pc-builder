@@ -1,7 +1,9 @@
 import Link from "next/link";
 import React from "react";
+import { useSelector } from "react-redux";
 
 export default function PcBuilderProduct({ data }) {
+  const { products } = useSelector((state) => state.pcbuilder);
   const { category, _id } = data || {};
   return (
     <div
@@ -10,6 +12,7 @@ export default function PcBuilderProduct({ data }) {
         justifyContent: "space-around",
         alignItems: "center",
         gap: "5px",
+        margin: "10px 0",
       }}
     >
       <div>
@@ -27,7 +30,12 @@ export default function PcBuilderProduct({ data }) {
             fontSize: "16px",
           }}
         >
-          lol
+          {products.map((p) => {
+            const cateProduct = p.category === _id;
+            if (cateProduct) {
+              return p.name;
+            }
+          })}
         </span>
       </div>
       <div

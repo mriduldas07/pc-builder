@@ -19,7 +19,7 @@ export default function ProductDetails({ data }) {
       >
         <div>
           <Image
-            src={product.image}
+            src={product?.image}
             width={400}
             height={300}
             alt="productImage"
@@ -38,28 +38,28 @@ export default function ProductDetails({ data }) {
               fontWeight: "600",
             }}
           >
-            {product.name}
+            {product?.name}
           </h1>
           <h3
             style={{
               fontSize: "20px",
             }}
           >
-            Price: {product.price} Tk
+            Price: {product?.price} Tk
           </h3>
           <h3
             style={{
               fontSize: "20px",
             }}
           >
-            Status: {product.status}
+            Status: {product?.status}
           </h3>
           <h3
             style={{
               fontSize: "20px",
             }}
           >
-            Rating: {product.rating}
+            Rating: {product?.rating}
           </h3>
         </div>
       </div>
@@ -74,7 +74,7 @@ export default function ProductDetails({ data }) {
             fontWeight: "600",
           }}
         >
-          {product.name}
+          {product?.name}
         </h1>
         <p
           style={{
@@ -82,7 +82,7 @@ export default function ProductDetails({ data }) {
             padding: "10px 350px 10px 0",
           }}
         >
-          {product.description}
+          {product?.description}
         </p>
       </div>
     </div>
@@ -107,7 +107,7 @@ export const getStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 };
 
