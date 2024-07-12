@@ -1,12 +1,11 @@
 import RootLayout from "@/components/Layout/RootLayout";
 import PcBuilderProduct from "@/components/UI/PcBuilderProduct";
-import React from "react";
 import { useSelector } from "react-redux";
 
 export default function PcBuilderPage({ data }) {
   const { products } = useSelector((state) => state.pcbuilder);
   return (
-    <div>
+    <div style={{ color: "black" }}>
       <div
         style={{
           display: "flex",

@@ -1,6 +1,5 @@
 import RootLayout from "@/components/Layout/RootLayout";
 import Image from "next/image";
-import React from "react";
 
 export default function ProductDetails({ data }) {
   const product = data?.data;
@@ -9,6 +8,7 @@ export default function ProductDetails({ data }) {
     <div
       style={{
         margin: "50px",
+        color: "black",
       }}
     >
       <div

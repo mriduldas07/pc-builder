@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Categories() {
   const [data, setData] = useState(null);
@@ -40,6 +40,7 @@ export default function Categories() {
             fontWeight: "600",
             padding: "10px 20px",
             cursor: "pointer",
+            color: "black",
           }}
         >
           <Link href={`/categoryProduct/${c._id}`}>{c.category}</Link>
